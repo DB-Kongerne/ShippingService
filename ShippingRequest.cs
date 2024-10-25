@@ -23,4 +23,6 @@ public class ShippingRequest
         Bredde = bredde;
         Hoejde = hoejde;
         Prioritet = prioritet;
-        Not
+        Noter = noter; // Rettet fra 'Not ret' til 'Noter'
+    }
+}
