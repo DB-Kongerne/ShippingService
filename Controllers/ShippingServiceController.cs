@@ -1,44 +1,45 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
+using RabbitMQ.Client;
+using System.Text;
+using System.Text.Json;
 
-namespace ShippingService.Controllers;
-
-[ApiController]
-[Route("[controller]")]
-public class ShippingServiceController : ControllerBase
+namespace ShippingService.Controllers
 {
-    private readonly ILogger<ShippingServiceController> _logger;
-
-    public ShippingServiceController(ILogger<ShippingServiceController> logger)
+    [ApiController]
+    [Route("[controller]")]
+    public class ShippingServiceController : ControllerBase
     {
-        _logger = logger;
-    }
+        private readonly ILogger<ShippingServiceController> _logger;
 
-    // HTTP POST endpoint for at modtage en ShippingRequest
-    [HttpPost("opret-leveringsanmodning")]
-    public IActionResult CreateShippingRequest([FromBody] ShippingRequest request)
-    {
-        if (request == null || string.IsNullOrEmpty(request.AfsenderAdresse) ||
-            string.IsNullOrEmpty(request.ModtagerAdresse) || request.PakkeVægt <= 0)
+        public ShippingServiceController(ILogger<ShippingServiceController> logger)
         {
-            _logger.LogWarning("Ugyldig leveringsanmodning modtaget");
-            return BadRequest("Ugyldig leveringsanmodning");
+            _logger = logger;
         }
 
-        _logger.LogInformation("Ny leveringsanmodning modtaget");
-        // Here should go the logic to process and save the shipping request
-        
-        return Ok("Leveringsanmodning oprettet");
-    }
+        [HttpPost]
+        public IActionResult CreateShippingRequest([FromBody] ShippingRequest shippingRequest)
+        {
+            // Send shippingRequest to message broker
+            var factory = new ConnectionFactory() { HostName = "localhost" }; // RabbitMQ
+            using (var connection = factory.CreateConnection())
+            using (var channel = connection.CreateModel())
+            {
+                channel.QueueDeclare(queue: "shipping_requests",
+                                     durable: false,
+                                     exclusive: false,
+                                     autoDelete: false,
+                                     arguments: null);
 
-    // HTTP GET endpoint for at udlevere en Delivery Plan
-    [HttpGet("leveringsplan")]
-    public IActionResult GetDeliveryPlan()
-    {
-        // Her burde du implementere logik til at hente og returnere leveringsplanen
-        var deliveryPlan = new { Message = "Leveringsplan vil blive tilføjet senere." };
-        
-        _logger.LogInformation("Leveringsplan forespørgsel modtaget");
-        return Ok(deliveryPlan);
+                var json = JsonSerializer.Serialize(shippingRequest);
+                var body = Encoding.UTF8.GetBytes(json);
+
+                channel.BasicPublish(exchange: "",
+                                     routingKey: "shipping_requests",
+                                     basicProperties: null,
+                                     body: body);
+            }
+
+            return Ok("Shipping request sent.");
+        }
     }
 }
