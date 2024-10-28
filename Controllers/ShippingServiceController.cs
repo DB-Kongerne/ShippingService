@@ -1,6 +1,4 @@
 using Microsoft.AspNetCore.Mvc;
-using RabbitMQ.Client;
-using System.Text;
 using System.Text.Json;
 
 namespace ShippingService.Controllers
@@ -19,27 +17,11 @@ namespace ShippingService.Controllers
         [HttpPost]
         public IActionResult CreateShippingRequest([FromBody] ShippingRequest shippingRequest)
         {
-            // Send shippingRequest to message broker
-            var factory = new ConnectionFactory() { HostName = "localhost" }; // RabbitMQ
-            using (var connection = factory.CreateConnection())
-            using (var channel = connection.CreateModel())
-            {
-                channel.QueueDeclare(queue: "shipping_requests",
-                                     durable: false,
-                                     exclusive: false,
-                                     autoDelete: false,
-                                     arguments: null);
+            _logger.LogInformation("Received a new shipping request: {ShippingRequest}", JsonSerializer.Serialize(shippingRequest));
 
-                var json = JsonSerializer.Serialize(shippingRequest);
-                var body = Encoding.UTF8.GetBytes(json);
+            // Her kunne du implementere yderligere logik til at håndtere shippingRequest.
 
-                channel.BasicPublish(exchange: "",
-                                     routingKey: "shipping_requests",
-                                     basicProperties: null,
-                                     body: body);
-            }
-
-            return Ok("Shipping request sent.");
+            return Ok("Shipping request processed successfully.");
         }
     }
 }

@@ -36,3 +36,4 @@ C:\Users\Charm\Documents\Ny mappe (2)\ShippingService\obj\Debug\net8.0\refint\Sh
 C:\Users\Charm\Documents\Ny mappe (2)\ShippingService\obj\Debug\net8.0\ShippingService.pdb
 C:\Users\Charm\Documents\Ny mappe (2)\ShippingService\obj\Debug\net8.0\ShippingService.genruntimeconfig.cache
 C:\Users\Charm\Documents\Ny mappe (2)\ShippingService\obj\Debug\net8.0\ref\ShippingService.dll
+C:\Users\Charm\Documents\Ny mappe (2)\ShippingService\bin\Debug\net8.0\NLog.Loki.dll

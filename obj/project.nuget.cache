@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "4CTH2ok8qdc=",
+  "dgSpecHash": "3D7LsVnjFqQ=",
   "success": true,
   "projectFilePath": "C:\\Users\\Charm\\Documents\\Ny mappe (2)\\ShippingService\\ShippingService.csproj",
   "expectedPackageFiles": [
@@ -15,6 +15,7 @@
     "C:\\Users\\Charm\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
     "C:\\Users\\Charm\\.nuget\\packages\\nlog\\5.3.4\\nlog.5.3.4.nupkg.sha512",
     "C:\\Users\\Charm\\.nuget\\packages\\nlog.extensions.logging\\5.3.13\\nlog.extensions.logging.5.3.13.nupkg.sha512",
+    "C:\\Users\\Charm\\.nuget\\packages\\nlog.targets.loki\\2.2.0\\nlog.targets.loki.2.2.0.nupkg.sha512",
     "C:\\Users\\Charm\\.nuget\\packages\\nlog.web.aspnetcore\\5.3.14\\nlog.web.aspnetcore.5.3.14.nupkg.sha512",
     "C:\\Users\\Charm\\.nuget\\packages\\rabbitmq.client\\6.8.1\\rabbitmq.client.6.8.1.nupkg.sha512",
     "C:\\Users\\Charm\\.nuget\\packages\\swashbuckle.aspnetcore\\6.4.0\\swashbuckle.aspnetcore.6.4.0.nupkg.sha512",

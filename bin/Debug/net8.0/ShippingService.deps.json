@@ -9,6 +9,7 @@
       "ShippingService/1.0.0": {
         "dependencies": {
           "NLog": "5.3.4",
+          "NLog.Targets.Loki": "2.2.0",
           "NLog.Web.AspNetCore": "5.3.14",
           "RabbitMQ.Client": "6.8.1",
           "Swashbuckle.AspNetCore": "6.4.0"
@@ -74,6 +75,17 @@
           "lib/net8.0/NLog.Extensions.Logging.dll": {
             "assemblyVersion": "5.0.0.0",
             "fileVersion": "5.3.13.579"
+          }
+        }
+      },
+      "NLog.Targets.Loki/2.2.0": {
+        "dependencies": {
+          "NLog": "5.3.4"
+        },
+        "runtime": {
+          "lib/net8.0/NLog.Loki.dll": {
+            "assemblyVersion": "0.0.0.0",
+            "fileVersion": "0.0.0.0"
           }
         }
       },
@@ -224,6 +236,13 @@
       "sha512": "sha512-i1n5+ZB6Hd5na2eWj7zjeIH4SS3qzmSgoSIGpxp3B0lJ8p/Cmg59NrDE9GReAAmKbQVbP0d/+e3S/6j79Tnaww==",
       "path": "nlog.extensions.logging/5.3.13",
       "hashPath": "nlog.extensions.logging.5.3.13.nupkg.sha512"
+    },
+    "NLog.Targets.Loki/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-GpVrKS+xFf42G6gvXwAy4pQuPVZYQhGuGqev0B7TK0WO1ttmKzgKUHt7JxxWrbA7rP93aou5PX3hSZB4TFC5hg==",
+      "path": "nlog.targets.loki/2.2.0",
+      "hashPath": "nlog.targets.loki.2.2.0.nupkg.sha512"
     },
     "NLog.Web.AspNetCore/5.3.14": {
       "type": "package",
