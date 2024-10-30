@@ -10,6 +10,7 @@ namespace ShippingService.Controllers
     [Route("api/forsendelse")]
     public class ShippingController : ControllerBase
     {
+        // HTTP POST til oprettelse af forsendelse
         [HttpPost("anmodning")]
         public async Task<IActionResult> OpretForsendelse([FromBody] ShippingRequest anmodning)
         {
@@ -49,6 +50,28 @@ namespace ShippingService.Controllers
             }
             
             return Ok("Forsendelse oprettet.");
+        }
+
+        // HTTP GET til udlevering af Delivery Plan
+        [HttpGet("leveringsplan")]
+        public async Task<IActionResult> HentLeveringsplan()
+        {
+            var filnavn = "DeliveryPlan-20240924.csv";
+
+            if (!System.IO.File.Exists(filnavn))
+            {
+                return NotFound("Leveringsplanen findes ikke.");
+            }
+
+            try
+            {
+                var leveringsPlanData = await System.IO.File.ReadAllTextAsync(filnavn);
+                return Ok(leveringsPlanData);
+            }
+            catch (IOException ex)
+            {
+                return StatusCode(500, $"Fejl under læsning af leveringsplan: {ex.Message}");
+            }
         }
     }
 }
