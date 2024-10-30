@@ -4,6 +4,7 @@ using System.Text.Json;
 using ShippingService.Models;
 using RabbitMQ.Client;
 
+
 namespace ShippingService.Controllers
 {
     [ApiController]
@@ -29,27 +30,36 @@ namespace ShippingService.Controllers
                 Status = "Under behandling"
             };
 
-            // Send ShipmentDelivery til RabbitMQ
+            // Publicer ShipmentDelivery til RabbitMQ
+            PublishToRabbitMQ(shipment);
+            
+            return Ok("Forsendelse oprettet og publiceret til kø.");
+        }
+
+        // Metode til at publicere en ShipmentDelivery til RabbitMQ
+        private void PublishToRabbitMQ(ShipmentDelivery shipment)
+        {
             var factory = new ConnectionFactory() { HostName = "localhost" };
             using (var connection = factory.CreateConnection())
             using (var channel = connection.CreateModel())
             {
+                // Deklarer køen, hvis den ikke allerede eksisterer
                 channel.QueueDeclare(queue: "forsendelsesKø",
                                      durable: false,
                                      exclusive: false,
                                      autoDelete: false,
                                      arguments: null);
 
+                // Serialiser ShipmentDelivery til JSON
                 var message = JsonSerializer.Serialize(shipment);
                 var body = Encoding.UTF8.GetBytes(message);
 
+                // Send beskeden til køen
                 channel.BasicPublish(exchange: "",
                                      routingKey: "forsendelsesKø",
                                      basicProperties: null,
                                      body: body);
             }
-            
-            return Ok("Forsendelse oprettet.");
         }
 
         // HTTP GET til udlevering af Delivery Plan
