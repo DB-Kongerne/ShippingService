@@ -1,45 +1,54 @@
 using Microsoft.AspNetCore.Mvc;
-using RabbitMQ.Client;
 using System.Text;
 using System.Text.Json;
+using ShippingService.Models;
+using RabbitMQ.Client;
 
 namespace ShippingService.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
-    public class ShippingServiceController : ControllerBase
+    [Route("api/forsendelse")]
+    public class ShippingController : ControllerBase
     {
-        private readonly ILogger<ShippingServiceController> _logger;
-
-        public ShippingServiceController(ILogger<ShippingServiceController> logger)
+        [HttpPost("anmodning")]
+        public async Task<IActionResult> OpretForsendelse([FromBody] ShippingRequest anmodning)
         {
-            _logger = logger;
-        }
+            if (anmodning == null)
+            {
+                return BadRequest("ShippingRequest mangler.");
+            }
 
-        [HttpPost]
-        public IActionResult CreateShippingRequest([FromBody] ShippingRequest shippingRequest)
-        {
-            // Send shippingRequest to message broker
-            var factory = new ConnectionFactory() { HostName = "localhost" }; // RabbitMQ
+            // Konverter ShippingRequest til ShipmentDelivery
+            var shipment = new ShipmentDelivery
+            {
+                MedlemsNavn = anmodning.MedlemsNavn,
+                AfhentningsAdresse = anmodning.AfhentningsAdresse,
+                PakkeId = anmodning.PakkeId,
+                LeveringsAdresse = anmodning.LeveringsAdresse,
+                Status = "Under behandling"
+            };
+
+            // Send ShipmentDelivery til RabbitMQ
+            var factory = new ConnectionFactory() { HostName = "localhost" };
             using (var connection = factory.CreateConnection())
             using (var channel = connection.CreateModel())
             {
-                channel.QueueDeclare(queue: "shipping_requests",
+                channel.QueueDeclare(queue: "forsendelsesKø",
                                      durable: false,
                                      exclusive: false,
                                      autoDelete: false,
                                      arguments: null);
 
-                var json = JsonSerializer.Serialize(shippingRequest);
-                var body = Encoding.UTF8.GetBytes(json);
+                var message = JsonSerializer.Serialize(shipment);
+                var body = Encoding.UTF8.GetBytes(message);
 
                 channel.BasicPublish(exchange: "",
-                                     routingKey: "shipping_requests",
+                                     routingKey: "forsendelsesKø",
                                      basicProperties: null,
                                      body: body);
             }
-
-            return Ok("Shipping request sent.");
+            
+            return Ok("Forsendelse oprettet.");
         }
     }
 }
