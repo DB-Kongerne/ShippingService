@@ -5,12 +5,22 @@ using ShippingService.Models;
 using RabbitMQ.Client;
 
 
+
+
 namespace ShippingService.Controllers
 {
     [ApiController]
     [Route("api/forsendelse")]
     public class ShippingController : ControllerBase
     {
+        private readonly string _Deliverys;
+        private readonly ILogger<ShippingController> _logger;
+        public ShippingController(ILogger<ShippingController> logger, IConfiguration configuration)
+    {
+        _logger = logger;
+        _Deliverys = configuration["Deliverys"] ?? string.Empty; // Hent miljøvariabel
+    }
+
         // HTTP POST til oprettelse af forsendelse
         [HttpPost("anmodning")]
         public async Task<IActionResult> OpretForsendelse([FromBody] ShippingRequest anmodning)

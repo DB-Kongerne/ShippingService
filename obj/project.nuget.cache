@@ -1,10 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "K/k0ldD0OWOg9pCjTALlFsjOUbBgkiLDDUkZ9xtKrGZfk5B2OczuyHQbu3XBJ2I4+NziWLxTfDw7trltzUb7Ag==",
+  "dgSpecHash": "MDFwIzwsM4+id2oBULZUns75Rv0o++7HLsjf2sjW35mACmZhxoRuZYz5SyeMFDmdvpFRmWuVa68JX/8/QnItvA==",
   "success": true,
   "projectFilePath": "/Users/Mel/4sem/HaaVSoftware/ShippingService/ShippingService.csproj",
   "expectedPackageFiles": [
     "/Users/Mel/.nuget/packages/microsoft.extensions.apidescription.server/6.0.5/microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
+    "/Users/Mel/.nuget/packages/microsoft.extensions.dependencyinjection/8.0.1/microsoft.extensions.dependencyinjection.8.0.1.nupkg.sha512",
+    "/Users/Mel/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/8.0.2/microsoft.extensions.dependencyinjection.abstractions.8.0.2.nupkg.sha512",
+    "/Users/Mel/.nuget/packages/microsoft.extensions.logging/8.0.1/microsoft.extensions.logging.8.0.1.nupkg.sha512",
+    "/Users/Mel/.nuget/packages/microsoft.extensions.logging.abstractions/8.0.2/microsoft.extensions.logging.abstractions.8.0.2.nupkg.sha512",
+    "/Users/Mel/.nuget/packages/microsoft.extensions.options/8.0.2/microsoft.extensions.options.8.0.2.nupkg.sha512",
+    "/Users/Mel/.nuget/packages/microsoft.extensions.primitives/8.0.0/microsoft.extensions.primitives.8.0.0.nupkg.sha512",
     "/Users/Mel/.nuget/packages/microsoft.openapi/1.2.3/microsoft.openapi.1.2.3.nupkg.sha512",
     "/Users/Mel/.nuget/packages/rabbitmq.client/6.8.1/rabbitmq.client.6.8.1.nupkg.sha512",
     "/Users/Mel/.nuget/packages/swashbuckle.aspnetcore/6.4.0/swashbuckle.aspnetcore.6.4.0.nupkg.sha512",
