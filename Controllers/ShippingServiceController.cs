@@ -27,7 +27,7 @@ namespace ShippingService.Controllers
                 AfhentningsAdresse = anmodning.AfhentningsAdresse,
                 PakkeId = anmodning.PakkeId,
                 LeveringsAdresse = anmodning.LeveringsAdresse,
-                Status = "Under behandling"
+        
             };
 
             // Publicer ShipmentDelivery til RabbitMQ

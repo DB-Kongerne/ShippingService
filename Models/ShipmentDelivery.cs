@@ -6,6 +6,6 @@ namespace ShippingService.Models
         public string AfhentningsAdresse { get; set; }
         public string PakkeId { get; set; }
         public string LeveringsAdresse { get; set; }
-        public string Status { get; set; } = "Under behandling";
+        
     }
 }

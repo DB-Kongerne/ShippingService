@@ -540,31 +540,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Amelia\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "/Users/Mel/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Amelia\\source\\repos\\Eksamen\\ShippingService\\ShippingService.csproj",
+      "projectUniqueName": "/Users/Mel/4sem/HaaVSoftware/ShippingService/ShippingService.csproj",
       "projectName": "ShippingService",
-      "projectPath": "C:\\Users\\Amelia\\source\\repos\\Eksamen\\ShippingService\\ShippingService.csproj",
-      "packagesPath": "C:\\Users\\Amelia\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Amelia\\source\\repos\\Eksamen\\ShippingService\\obj\\",
+      "projectPath": "/Users/Mel/4sem/HaaVSoftware/ShippingService/ShippingService.csproj",
+      "packagesPath": "/Users/Mel/.nuget/packages/",
+      "outputPath": "/Users/Mel/4sem/HaaVSoftware/ShippingService/obj/",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Amelia\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/Mel/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "/usr/local/share/dotnet/library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -616,16 +610,8 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.401/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.201/PortableRuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\Amelia\\source\\repos\\Eksamen\\ShippingService\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }
