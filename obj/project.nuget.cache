@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "MDFwIzwsM4+id2oBULZUns75Rv0o++7HLsjf2sjW35mACmZhxoRuZYz5SyeMFDmdvpFRmWuVa68JX/8/QnItvA==",
+  "dgSpecHash": "BqSFpc8bLH6qpdaJO2i2kZQJysXVJmlLb/UDpUIy7fLMTaWmuxIRkBFjVghQx0cMN7MubH6V98I2eGM5ry7Giw==",
   "success": true,
   "projectFilePath": "/Users/Mel/4sem/HaaVSoftware/ShippingService/ShippingService.csproj",
   "expectedPackageFiles": [
     "/Users/Mel/.nuget/packages/microsoft.extensions.apidescription.server/6.0.5/microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
+    "/Users/Mel/.nuget/packages/microsoft.extensions.configuration.abstractions/8.0.0/microsoft.extensions.configuration.abstractions.8.0.0.nupkg.sha512",
     "/Users/Mel/.nuget/packages/microsoft.extensions.dependencyinjection/8.0.1/microsoft.extensions.dependencyinjection.8.0.1.nupkg.sha512",
     "/Users/Mel/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/8.0.2/microsoft.extensions.dependencyinjection.abstractions.8.0.2.nupkg.sha512",
     "/Users/Mel/.nuget/packages/microsoft.extensions.logging/8.0.1/microsoft.extensions.logging.8.0.1.nupkg.sha512",
@@ -12,6 +13,10 @@
     "/Users/Mel/.nuget/packages/microsoft.extensions.options/8.0.2/microsoft.extensions.options.8.0.2.nupkg.sha512",
     "/Users/Mel/.nuget/packages/microsoft.extensions.primitives/8.0.0/microsoft.extensions.primitives.8.0.0.nupkg.sha512",
     "/Users/Mel/.nuget/packages/microsoft.openapi/1.2.3/microsoft.openapi.1.2.3.nupkg.sha512",
+    "/Users/Mel/.nuget/packages/nlog/5.3.4/nlog.5.3.4.nupkg.sha512",
+    "/Users/Mel/.nuget/packages/nlog.extensions.logging/5.3.15/nlog.extensions.logging.5.3.15.nupkg.sha512",
+    "/Users/Mel/.nuget/packages/nlog.targets.loki/2.2.0/nlog.targets.loki.2.2.0.nupkg.sha512",
+    "/Users/Mel/.nuget/packages/nlog.web.aspnetcore/5.3.15/nlog.web.aspnetcore.5.3.15.nupkg.sha512",
     "/Users/Mel/.nuget/packages/rabbitmq.client/6.8.1/rabbitmq.client.6.8.1.nupkg.sha512",
     "/Users/Mel/.nuget/packages/swashbuckle.aspnetcore/6.4.0/swashbuckle.aspnetcore.6.4.0.nupkg.sha512",
     "/Users/Mel/.nuget/packages/swashbuckle.aspnetcore.swagger/6.4.0/swashbuckle.aspnetcore.swagger.6.4.0.nupkg.sha512",
