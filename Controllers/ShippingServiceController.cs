@@ -49,7 +49,7 @@ namespace ShippingService.Controllers
         // Metode til at publicere en ShipmentDelivery til RabbitMQ
         private void PublishToRabbitMQ(ShipmentDelivery shipment)
         {
-            var factory = new ConnectionFactory() { HostName = "localhost" };
+            var factory = new ConnectionFactory() { HostName = "localhost:15672" };
             using (var connection = factory.CreateConnection())
             using (var channel = connection.CreateModel())
             {
@@ -72,7 +72,7 @@ namespace ShippingService.Controllers
             }
         }
 
-        // HTTP GET til udlevering af Delivery Plan
+        /*// HTTP GET til udlevering af Delivery Plan
         [HttpGet("leveringsplan")]
         public async Task<IActionResult> HentLeveringsplan()
         {
@@ -92,6 +92,6 @@ namespace ShippingService.Controllers
             {
                 return StatusCode(500, $"Fejl under læsning af leveringsplan: {ex.Message}");
             }
-        }
+        }*/
     }
 }
