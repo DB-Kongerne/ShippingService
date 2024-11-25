@@ -15,10 +15,12 @@ namespace ShippingService.Controllers
     {
         private readonly string _Deliverys;
         private readonly ILogger<ShippingController> _logger;
+        private readonly string _rabbitHost;
         public ShippingController(ILogger<ShippingController> logger, IConfiguration configuration)
     {
         _logger = logger;
         _Deliverys = configuration["Deliverys"] ?? string.Empty; // Hent miljøvariabel
+        _rabbitHost = configuration["RabbitHost"] ?? "localhost"; // Hent RabbitHost fra appsettings.json   
     }
 
         // HTTP POST til oprettelse af forsendelse
@@ -49,7 +51,7 @@ namespace ShippingService.Controllers
         // Metode til at publicere en ShipmentDelivery til RabbitMQ
         private void PublishToRabbitMQ(ShipmentDelivery shipment)
         {
-            var factory = new ConnectionFactory() { HostName = "localhost:15672" };
+            var factory = new ConnectionFactory() { HostName = _rabbitHost };
             using (var connection = factory.CreateConnection())
             using (var channel = connection.CreateModel())
             {
