@@ -3,6 +3,7 @@ using NLog.Web;
 
 var logger = NLog.LogManager.Setup().LoadConfigurationFromAppSettings()
     .GetCurrentClassLogger();
+    //logmanager sejt setup(endepunkter)
 
 try
 {

@@ -1,0 +1,52 @@
+2024-11-26 08:49:33.2542 Info Loading assembly name: NLog.Loki
+2024-11-26 08:49:33.2895 Info NLog.Loki, Version=0.0.0.0, Culture=neutral, PublicKeyToken=8dab11a1448ce9d0. File version: 0.0.0.0. Product version: 2.2.0+5e265bfa77f16c02f19034d51f9e4d2fbf4a77e7. GlobalAssemblyCache: False
+2024-11-26 08:49:33.3320 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-11-26 08:49:33.3323 Info Registered target NLog.Targets.ConsoleTarget(Name=logconsole)
+2024-11-26 08:49:33.3985 Info Registered target NLog.Loki.LokiTarget(Name=loki)
+2024-11-26 08:49:33.4042 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.4.2778. Product version: 5.3.4+73d83d3161d31288ca5c554cc50d27b6bed5f28b. GlobalAssemblyCache: False
+2024-11-26 08:49:33.4950 Info LogManager.ThrowExceptions = true can crash the application! Use only for unit-testing and last resort troubleshooting.
+2024-11-26 08:49:33.5014 Info Validating config: TargetNames=logfile, logconsole, loki, ConfigItems=47, FilePath=/Users/Mel/4sem/HaaVSoftware/ShippingService/bin/Debug/net8.0/nlog.config
+2024-11-26 08:49:33.5148 Info Configuration initialized.
+2024-11-26 08:49:33.7469 Info Validating config: TargetNames=logfile, logconsole, loki, ConfigItems=47, FilePath=/Users/Mel/4sem/HaaVSoftware/ShippingService/bin/Debug/net8.0/nlog.config
+2024-11-26 08:49:34.5355 Warn lokiTarget(Name=loki): WriteAsyncTask failed on completion. Sleep 250 ms Exception: System.Net.Http.HttpRequestException: Connection refused (localhost:3100)
+ ---> System.Net.Sockets.SocketException (61): Connection refused
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|285_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp11ConnectionAsync(QueueItem queueItem)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+   at NLog.Loki.HttpLokiTransport.WriteLogEventsAsync(IEnumerable`1 lokiEvents)
+2024-11-26 08:50:40.1241 Info Shutdown() called. Logger closing...
+2024-11-26 08:50:40.1241 Info Closing old configuration.
+2024-11-26 08:50:40.1325 Info Logger has been closed down.
+2024-11-26 08:50:44.4013 Info Loading assembly name: NLog.Loki
+2024-11-26 08:50:44.4398 Info NLog.Loki, Version=0.0.0.0, Culture=neutral, PublicKeyToken=8dab11a1448ce9d0. File version: 0.0.0.0. Product version: 2.2.0+5e265bfa77f16c02f19034d51f9e4d2fbf4a77e7. GlobalAssemblyCache: False
+2024-11-26 08:50:44.4764 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-11-26 08:50:44.4768 Info Registered target NLog.Targets.ConsoleTarget(Name=logconsole)
+2024-11-26 08:50:44.5376 Info Registered target NLog.Loki.LokiTarget(Name=loki)
+2024-11-26 08:50:44.5442 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.4.2778. Product version: 5.3.4+73d83d3161d31288ca5c554cc50d27b6bed5f28b. GlobalAssemblyCache: False
+2024-11-26 08:50:44.6664 Info LogManager.ThrowExceptions = true can crash the application! Use only for unit-testing and last resort troubleshooting.
+2024-11-26 08:50:44.6743 Info Validating config: TargetNames=logfile, logconsole, loki, ConfigItems=47, FilePath=/Users/Mel/4sem/HaaVSoftware/ShippingService/bin/Debug/net8.0/nlog.config
+2024-11-26 08:50:44.6878 Info Configuration initialized.
+2024-11-26 08:50:44.9006 Info Validating config: TargetNames=logfile, logconsole, loki, ConfigItems=47, FilePath=/Users/Mel/4sem/HaaVSoftware/ShippingService/bin/Debug/net8.0/nlog.config
+2024-11-26 08:58:04.9777 Info Shutdown() called. Logger closing...
+2024-11-26 08:58:04.9787 Info Closing old configuration.
+2024-11-26 08:58:04.9871 Info Logger has been closed down.
+2024-11-26 08:58:09.4499 Info Loading assembly name: NLog.Loki
+2024-11-26 08:58:09.4845 Info NLog.Loki, Version=0.0.0.0, Culture=neutral, PublicKeyToken=8dab11a1448ce9d0. File version: 0.0.0.0. Product version: 2.2.0+5e265bfa77f16c02f19034d51f9e4d2fbf4a77e7. GlobalAssemblyCache: False
+2024-11-26 08:58:09.5202 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-11-26 08:58:09.5205 Info Registered target NLog.Targets.ConsoleTarget(Name=logconsole)
+2024-11-26 08:58:09.5860 Info Registered target NLog.Loki.LokiTarget(Name=loki)
+2024-11-26 08:58:09.5920 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.4.2778. Product version: 5.3.4+73d83d3161d31288ca5c554cc50d27b6bed5f28b. GlobalAssemblyCache: False
+2024-11-26 08:58:09.6900 Info LogManager.ThrowExceptions = true can crash the application! Use only for unit-testing and last resort troubleshooting.
+2024-11-26 08:58:09.6965 Info Validating config: TargetNames=logfile, logconsole, loki, ConfigItems=47, FilePath=/Users/Mel/4sem/HaaVSoftware/ShippingService/bin/Debug/net8.0/nlog.config
+2024-11-26 08:58:09.7096 Info Configuration initialized.
+2024-11-26 08:58:09.9212 Info Validating config: TargetNames=logfile, logconsole, loki, ConfigItems=47, FilePath=/Users/Mel/4sem/HaaVSoftware/ShippingService/bin/Debug/net8.0/nlog.config
